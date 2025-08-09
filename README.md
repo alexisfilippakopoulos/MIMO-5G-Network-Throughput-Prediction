@@ -1,12 +1,7 @@
-# ML-in-Mobile-Computing
-
-Classification: Polynomial SVM, Decision Trees 
-Regression: Logistic Regressor, Neural Network with 2-5 hidden layers
+# MIMO-5G-Network-Throughput-Prediction
 
 ## Problem Setting
-<p style="font-size:20px;">
 The topology below shows a 5G two-tier cellular MIMO-OFDMA system. The cells are hexagonal and a base station (BS) is located at the center of each cell. We aim to predict and classify user throughput in this network based on a variety of network and user-related parameters. The dataset contains both numerical and categorical features describing each user’s position, connection parameters, and signal characteristics. More specifically, we utilize the following features.
-</p>
 
 - x, y user coordinates in the topology
 - base station (BS) of service
@@ -18,17 +13,7 @@ The topology below shows a 5G two-tier cellular MIMO-OFDMA system. The cells are
 
 ## Approach
 
-### Exploratory Data Analysis (EDA)
-
-- Verified dataset completeness (no missing values).
-
-- Analyzed distributions and correlations.
-
-- Found strong correlation between sector_user and base_station_user; retained sector_user due to higher importance and variance.
-
-- Identified skew in Power_W_ and cyclic nature in BS_UEAngle_degrees_.
-
-Feature Engineering
+### Feature Engineering
 
 - Encoded categorical ModulationType using LabelEncoder.
 
@@ -38,7 +23,7 @@ Feature Engineering
 
 - Removed redundant features after correlation analysis.
 
-Regression Task
+### Regression Task
 
 - Target: continuous throughput (Throughput_Mbps_).
 
@@ -52,17 +37,13 @@ Regression Task
 
 - Learning rate & schedule
 
-- Achieved low MSE, MAE, and RMSE on validation set.
-
-Classification Task
+### Classification Task
 
 - Converted throughput into binary classes:
 
-- Class 0: ≤ 300 Mbps
+    - Class 0: ≤ 300 Mbps
 
-- Class 1: > 300 Mbps
-
-- Dataset was imbalanced towards Class 1.
+    - Class 1: > 300 Mbps
 
 - Tested two models: SVC (with polynomial kernel, class weighting, and scaling) and DecisionTreeClassifier.
 
